@@ -1,7 +1,25 @@
-import BookEntity from "./entities/book.entity";
+import { DataSource } from "typeorm";
+import config from "./config";
 
-export const books: BookEntity[] = [];
+export default class DB {
+  private static instance: DB;
+  public dataSource: DataSource;
 
-export default {
-  books,
-};
+  private constructor() {
+    this.dataSource = new DataSource(config.db);
+    this.dataSource
+      .initialize()
+      .then(() => console.log("successfully connected to DB"))
+      .catch((error) => {
+        console.error("failed to connect to DB");
+        console.error(error);
+      });
+  }
+
+  public static getInstance(): DB {
+    if (!DB.instance) {
+      DB.instance = new DB();
+    }
+    return DB.instance;
+  }
+}

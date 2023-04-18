@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 
+// TODO: add optional fields checking
 export function checkRequestDto(
   req: Request,
   res: Response,
