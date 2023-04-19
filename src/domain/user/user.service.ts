@@ -1,9 +1,14 @@
-import DB from "../../db";
+import { dataSource } from "../../data-source";
 import { UserEntity } from "./user.entity";
 
-const userRepository = DB.getInstance().dataSource.getRepository(UserEntity);
+const userRepository = dataSource.getRepository(UserEntity);
 
-export function getUsers(): Promise<UserEntity[]> {
-  console.log("user service");
-  return userRepository.find();
+export async function getUsers(): Promise<UserEntity[]> {
+  return await userRepository.find();
+}
+
+export async function createUser(dto: any) {
+  const user = userRepository.create(dto);
+
+  return await userRepository.save(user);
 }

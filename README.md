@@ -4,6 +4,9 @@
 - add zod and remove dto-checker
 - add eslint
 - prettier
+- add migrations
+- authentication
+- authorization
 
 # File system structure
 
