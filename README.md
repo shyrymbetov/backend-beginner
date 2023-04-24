@@ -1,12 +1,13 @@
 # TODOS (FOR TEACHER ONLY)
 
 - add dotenv
-- add zod and remove dto-checker
 - add eslint
-- prettier
-- add migrations
-- authentication
-- authorization
+- add prettier
+
+* add zod and remove dto-checker
+* add migrations
+* add authentication
+* add authorization
 
 # File system structure
 

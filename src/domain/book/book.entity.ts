@@ -7,21 +7,18 @@ import {
 } from "typeorm";
 
 @Entity()
-export class UserEntity {
+export class BookEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
   @Column()
-  username!: string;
+  title!: string;
 
   @Column()
-  firstName!: string;
+  author!: string;
 
   @Column()
-  lastName!: string;
-
-  @Column()
-  hashedPassword!: string;
+  publishedAt!: Date;
 
   @CreateDateColumn()
   createdAt!: Date;
