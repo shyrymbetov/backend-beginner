@@ -9,6 +9,12 @@
 * add authentication
 * add authorization
 
+# Documentations
+
+## ZOD
+
+### https://github.com/colinhacks/zod
+
 # File system structure
 
 ## /
