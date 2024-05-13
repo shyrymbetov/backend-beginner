@@ -9,9 +9,18 @@ export async function getUsers(): Promise<UserEntity[]> {
 }
 
 export async function createUser(dto: CreateUserDto) {
-  console.log(dto);
-  return;
+  
   const user = userRepository.create(dto);
 
   return await userRepository.save(user);
+}
+
+export async function getUserByUsername(
+    username: string
+): Promise<UserEntity | null> {
+  return await userRepository.findOneBy({ username });
+}
+
+export async function getUserById(id: number): Promise<UserEntity | null> {
+  return await userRepository.findOneBy({ id });
 }

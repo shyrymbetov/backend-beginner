@@ -5,13 +5,14 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { UserRoleEnum } from './types/user-role.enum';
 
 @Entity()
 export class UserEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({unique: true})
   username!: string;
 
   @Column()
@@ -22,6 +23,13 @@ export class UserEntity {
 
   @Column()
   hashedPassword!: string;
+
+  @Column({
+    type: 'enum',
+    enum: UserRoleEnum,
+    default: UserRoleEnum.Basic,
+  })
+  role!: UserRoleEnum;
 
   @CreateDateColumn()
   createdAt!: Date;
